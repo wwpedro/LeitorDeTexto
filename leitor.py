@@ -13,6 +13,9 @@
 #4-use return literal
 
 #Abrir e Ler o Arquivo
+from fileinput import close
+
+
 arquivo = open("arquivo.txt","r",encoding="utf-8")
 
 #Organizo uma Lista
@@ -42,7 +45,7 @@ for item1 in lista:
             lista2.append(menor_palavra)
             break
 
-novaLista = [num for num in reversed(lista2)]
+novaLista = [palavra1 for palavra1 in reversed(lista2)]
 print(novaLista)
 contador=0;
 for item3 in novaLista:
@@ -53,21 +56,52 @@ for item3 in novaLista:
 
 #contar Vogais
 
-#contarA=0
-#contarE=0
-#contarI=0
-#contarO=0
-#contarU=0
+contarA=0
+contarE=0
+contarI=0
+contarO=0
+contarU=0
 
-#for vogal in lista:
-#    if
-
-#ção
+for letra in lista:
     
-            
-            
+    if "a" in letra or "A" in letra:
+        contarA=contarA+1
+    elif "e" in letra or "E" in letra:
+        contarE=contarE+1
+    elif "i" in letra or "I" in letra:
+        contarI=contarI+1
+    elif "o" in letra or "O" in letra:
+        contarO=contarO+1
+    elif "u" in letra or "U" in letra:
+        contarU=contarU+1
+
+if contarA > contarE and contarA > contarI and contarA > contarO and contarA > contarU:
+    print("Existem ",contarA," caracteres A no texto por isso A é a vogal que mais aparece")
+elif contarE > contarA and contarE > contarI and contarE > contarO and contarE > contarU:
+    print("Existem ",contarE," caracteres E no texto por isso E é a vogal que mais aparece")
+elif contarI > contarE and contarI > contarA and contarI > contarO and contarI > contarU:
+    print("Existem ",contarI," caracteres I no texto por isso I é a vogal que mais aparece")
+elif contarO > contarE and contarO > contarI and contarO > contarA and contarO > contarU:
+    print("Existem ",contarO," caracteres O no texto por isso O é a vogal que mais aparece")
+elif contarU > contarE and contarU > contarI and contarU > contarO and contarU > contarA:
+    print("Existem ",contarU," caracteres U no texto por isso U é a vogal que mais aparece")
         
-    
+ 
+#ção
+arquivo_externo = open("arquivo.txt",encoding="utf-8")
+linhas = arquivo_externo.readlines()
+contarLinha = 0
+for linha in linhas:
+    if "ção" in linha or "ÇÃO" in linha:
+        print("chegou")
+        contarLinha=contarLinha+1
+        break
+    else:
+        contarLinha=contarLinha+1
+        continue
+
+print("A String Literal ÇÃO esta na linha: ",contarLinha)
+arquivo_externo.close()
 
 
 
